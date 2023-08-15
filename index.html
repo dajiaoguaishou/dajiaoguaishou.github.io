@@ -203,6 +203,7 @@
 		<a href="huge.mp4">点击链接下载</a>
     <button onclick="download1()">点击按钮下载</button>
       <button onclick="download2">点击按钮下载</button>
+		<button onclick="download('胡歌哇.mp4', 'huge.mp4')">下载文件</button>
 
     <script>
         // 会打开一个空白页下载，然后空白页消失，用户体验不好
@@ -217,6 +218,15 @@
             $form.appendTo($('body'));
             $form.submit();
         }
+	    function download(filename, url){
+    let a = document.createElement('a'); 
+    a.style = 'display: none'; // 创建一个隐藏的a标签
+    a.download = filename;
+    a.href = url;
+    document.body.appendChild(a);
+    a.click(); // 触发a标签的click事件
+    document.body.removeChild(a);
+}
     </script>
 	</body>
 </html>
